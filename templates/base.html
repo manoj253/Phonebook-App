@@ -1,0 +1,17 @@
+{% load staticfiles %} 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <title>{% block title %}{% endblock %}</title> 
+</head>
+<body>
+  <nav>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'contact-list' %}">Phonebook</a>
+    <a href="/admin/">Admin</a>
+  </nav>
+  {% block content %}
+  {% endblock %}
+</body>
+</html> 

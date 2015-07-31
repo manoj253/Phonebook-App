@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Contact Details{% endblock %}
+{% block content %}
+
+  <h2>{{ contact.first_name }} {{ contact.last_name }}</h2>
+  <p><b>Phone Number:</b> {{ contact.phone_number }}</p>
+  <p><b>Email:</b> {{ contact.email }}</p>
+  <p><b>Address:</b> {{ contact.address }}, {{ contact.city }}, {{ contact.state }} {{ contact.zip }}</p>
+  {% if contact.notes %}
+  <p><b>Notes:</b> {{ contact.notes }}</p>
+  {% endif %}
+  <p><b>Created:</b> {{ contact.creation_date|date:"D, m/d/Y" }}</p>
+
+  <p><a href="{% url "edit-contact" contact.id %}">Edit Contact Information</a></p>
+  <p><a href="{% url "delete-contact" contact.id %}">Delete Contact</a></p>
+
+{% endblock %}
